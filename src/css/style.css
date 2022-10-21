@@ -1,0 +1,16 @@
+
+.modal-container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background :linear-gradient(-20deg, rgba(0, 0, 0, 0.8) 0%, rgba(63, 114, 175, .8) 100%);
+}
+
+.hidden{
+    display: none;
+}
+

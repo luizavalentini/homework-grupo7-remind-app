@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/style.css">
     <title>Document</title>
 </head>
@@ -14,6 +15,41 @@
     <main>
 
     </main>
+        <button onclick="manipularModal()">Abir Modal</button>
+    <div class="modal-container">
+        <div class="modal">
+            <header class="modal-header">
+                <h2>
+                    Adicionar lembrete
+                </h2>
+            </header>
+            <form>
+                <label for="descricao">Descrição:</label>
+                <input name='descricao' id="descricao" type="text">
+                <label for="mes">Mês:</label>
+                <select name="mes" id="mes">
+                    <option value="jan">Jan</option>
+                    <option value="fev">Fev</option>
+                    <option value="mar">Mar</option>
+                    <option value="abr">Abr</option>
+                    <option value="mai">Mai</option>
+                    <option value="jun">Jun</option>
+                    <option value="jul">Jul</option>
+                    <option value="ago">Ago</option>
+                    <option value="set">Set</option>
+                    <option value="out">Out</option>
+                    <option value="nov">Nov</option>
+                    <option value="dez">Dez</option>
+                </select>
+                <label for="ano">Ano:</label>
+                <input name='descricao' min="2022" max="2030" id="descricao" type="number">
+                <label for="hora">Hora:</label>
+                <input type="text" name="hora" id="hora">
+                <button type="submit">Adicionar lembrete</button>
+                <button type="button" onclick="manipularModal()">Cancelar</button>
+            </form>
+        </div>
+    </div>
     <script src="./src/js/main.js"></script>
 </body>
 </html>
