@@ -10,7 +10,6 @@
 </head>
 <body>
     <main>
-
         <div class="container">
             <h1>Reminders App</h1>
             <div class="btn-container">
@@ -19,7 +18,7 @@
                     <div>out, 2022</div>
                     <div>></div>
                 </div>
-                <button>+ Adicionar lembrete</button>
+                <button class="button-primary" onclick="manipularModal()">+ Adicionar lembrete</button>
             </div>
         </div>
         <div class="task-container">
@@ -27,8 +26,7 @@
         </div>
         
     </main>
-        <button onclick="manipularModal()">Abir Modal</button>
-    <div class="modal-container">
+    <div class="modal-container hidden">
         <div class="modal">
             <header class="modal-header">
                 <h2>
@@ -57,8 +55,8 @@
                     <input class="modal-input" name='descricao' min="2022" max="2030" id="descricao" type="number">
                     <label for="hora">Hora:</label>
                     <input class="modal-input" type="text" name="hora" id="hora">
-                    <button type="submit">Adicionar lembrete</button>
-                    <button id="delete" type="button" onclick="manipularModal()">Cancelar</button>
+                    <button type="submit" class="button-primary">Adicionar lembrete</button>
+                    <button id="delete" type="button" class="button-primary" onclick="manipularModal()">Cancelar</button>
                 </form>
         </div>
     </div>

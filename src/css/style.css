@@ -23,12 +23,12 @@ main {
 .container {
     background-color: var(--branco);
     width: 600px;
-    height: 200px;
     margin-top: 80px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 40px;
 }
 
 .task-container {
@@ -90,9 +90,7 @@ main {
     color: var(--color-font-data);
 }
 
-.btn-container button {
-    width: 180px;
-    height: 40px;
+.button-primary{
     background-color: var(--bg-body);
     border: 1px solid var(--bg-body);
     border-radius: 5px;
@@ -100,9 +98,9 @@ main {
     font-size: 12px;
     cursor: pointer;
     transition: .5s;
+    padding: .7rem 2rem;
 }
-
-.btn-container button:hover {
+.button-primary:hover{
     background-color: var(--branco);
     color: var(--bg-body);
     transform: scale(1.01);
@@ -150,4 +148,5 @@ main {
 #delete{
     color: white;
     background-color: rgb(227, 56, 56);
+    border: none;
 }
