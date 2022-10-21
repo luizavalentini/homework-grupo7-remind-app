@@ -10,7 +10,35 @@
     background :linear-gradient(-20deg, rgba(0, 0, 0, 0.8) 0%, rgba(63, 114, 175, .8) 100%);
 }
 
+.modal{
+    padding: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.modal-body{
+    display: flex;
+    flex-direction: column; 
+    margin-top: 10px;   
+    gap: 20px;
+}
+
 .hidden{
     display: none;
 }
 
+.modal-input {
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: black;
+}
+
+.modal-input:focus {
+    border-color: rgb(7, 87, 226);
+    outline: 1px solid rgb(7, 87, 226);
+
+}
+
+#delete{
+    color: white;
+    background-color: rgb(227, 56, 56);
+}
