@@ -86,13 +86,14 @@ function addLembrete(e) {
     }
 }
 
+
 //Mostrar Lembretes na tela
 
 function mostrarLembretes(){
   let show = document.querySelector('.tasks');
   show.innerHTML = '';
-  let lembretesFiltrados = lembretes
-  .filter((lembrete) => lembrete[1] === meses[mesAtual-1] && lembrete[2] === anoAtual )   
+  let lembretesFiltrados = lembretes.sort((a,b) => parseInt(a[3].replace(':', '')) - parseInt(b[3].replace(':', '')))
+  .filter((lembrete) => lembrete[1] === meses[mesAtual-1] && lembrete[2] == anoAtual )   
   if (lembretesFiltrados.length > 0 ){
     lembretesFiltrados
     .forEach(el =>{
