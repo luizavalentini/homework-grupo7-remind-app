@@ -88,7 +88,7 @@ function mostrarLembretes(){
   let show = document.querySelector('.tasks');
   show.innerHTML = '';
   let lembretesFiltrados = lembretes
-  .filter((lembrete) => lembrete[1] === meses[mesAtual-1] && lembrete[2] === anoAtual )   
+  .filter((lembrete) => lembrete[1] === meses[mesAtual-1] && lembrete[2] == anoAtual )   
   if (lembretesFiltrados.length > 0 ){
     lembretesFiltrados
     .forEach(el =>{
