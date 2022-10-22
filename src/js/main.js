@@ -79,7 +79,8 @@ function addLembrete(e) {
     if(validarHorario(lembrete)){
       lembreteArray.push(lembreteObj.hora);
     }
-    
+
+
     lembretes.push(lembreteArray);
     manipularModal();
     mostrarLembretes();
@@ -106,8 +107,11 @@ function mostrarLembretes(){
 
 
 function validarHorario(horario){
+  console.log(horario);
   const msgErro = document.getElementById('erro-horario');
+  msgErro.innerText = "";
   const hora = horario.slice(0, 2);
+  const hora = parseInt(horario.slice(0, 2));
   const minutos = horario.slice(-2);
 
   console.log(minutos);
