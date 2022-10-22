@@ -1,6 +1,6 @@
 // Inicialização de variáveis
 let lembretes = [
-    ["Titulo do lembrete","out", 2022, "10:30"], 
+    ["Titulo do lembrete","out", 2022, "11:30"], 
     ["Ir na facul","nov", 2022, "10:30"], 
     ["fazer compras","out", 2022, "10:30"],
 ]
@@ -73,13 +73,16 @@ function addLembrete(e) {
   let lembreteObj = Object.fromEntries(formData);
   //As duas linhas acima criam um objeto com todos os campos do formulario.
   let lembreteArray = [];
-  lembreteArray.push(lembreteObj.descricao);
-  lembreteArray.push(lembreteObj.mes);
-  lembreteArray.push(lembreteObj.ano);
-  lembreteArray.push(lembreteObj.hora);
-  lembretes.push(lembreteArray);
-  manipularModal();
-  mostrarLembretes();
+    lembreteArray.push(lembreteObj.descricao);
+    lembreteArray.push(lembreteObj.mes);
+    lembreteArray.push(lembreteObj.ano);
+    if(validarHorario(lembrete)){
+      lembreteArray.push(lembreteObj.hora);
+    }
+    
+    lembretes.push(lembreteArray);
+    manipularModal();
+    mostrarLembretes();
 }
 
 //Mostrar Lembretes na tela
@@ -99,4 +102,31 @@ function mostrarLembretes(){
     }else{
       show.innerHTML = `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
   }
+}
+
+
+function validarHorario(horario){
+  const msgErro = document.getElementById('erro-horario');
+  const hora = horario.slice(0, 2);
+  const minutos = horario.slice(-2);
+
+  console.log(minutos);
+  if(horario.length < 4 || horario.length > 5 || minutos.length < 2){
+    msgErro.innerText = 'horario inválido';
+  }else{
+    if(hora >= 0 && hora < 24){
+     console.log(formataHoraMinuto(hora));
+    }else{
+      msgErro.innerText = "hora inválida";
+   }
+   if( minutos >=0 && minutos < 60){
+    console.log(formataHoraMinuto(minutos));
+   }else{
+    msgErro.innerText = "minutos inválido";
+   }
+  }
+}
+
+function formataHoraMinuto(a){
+  return a < 10 ? `0${a}` : a;
 }
