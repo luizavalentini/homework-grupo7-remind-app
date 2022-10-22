@@ -7,8 +7,29 @@ document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
   addLembrete(event);
 });
-let meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+let meses = ['jan, 2022','fev, 2022','mar, 2022','abr, 2022','mai, 2022','jun, 2022','jul, 2022','ago, 2022','set, 2022','out, 2022','nov, 2022','dez, 2022']
 let mesAtual = 10;
+let mesChange = 0;
+
+function mudarMesAvançar(){
+    let show = document.querySelector('.mostra');
+    show.innerHTML = '';
+    if(mesChange+1<meses.length){
+        mesChange++;
+   }
+    let mes = meses[mesChange]
+    show.innerHTML += `<p>${mes}</p>`
+}
+
+function mudarMesVoltar(){
+    let show = document.querySelector('.mostra');
+    show.innerHTML = '';
+    if(mesChange-1>=0){
+         mesChange--;
+    }
+    let mes = meses[mesChange]
+    show.innerHTML += `<p>${mes}</p>`
+}
 
 function manipularModal() {
   modal = document.querySelector(".modal-container");
