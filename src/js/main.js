@@ -74,7 +74,8 @@ function addLembrete(e) {
   let formData = new FormData(e.target).entries();
   let lembreteObj = Object.fromEntries(formData);
   //As duas linhas acima criam um objeto com todos os campos do formulario.
-  let lembreteArray = [];
+  if(validarHorario(lembreteObj.hora) && validarDescricao(lembreteObj.descricao)){ 
+    let lembreteArray = [];
     lembreteArray.push(lembreteObj.descricao);
     lembreteArray.push(lembreteObj.mes);
     lembreteArray.push(parseInt(lembreteObj.ano));
@@ -129,4 +130,27 @@ function validarHorario(horario){
 
 function formataHoraMinuto(a){
   return a < 10 ? `0${a}` : a;
+}
+
+//Outras validações na descrição 
+
+function validarDescricao(descricao){
+  let msgErro1 = document.getElementById('erro-descricao');
+  msgErro1.innerText = ''
+  if(descricao != undefined){
+    if (descricao.length == 0){
+      msgErro1.innerText = 'Descrição deve não estar vazia'
+      return false
+    } else if (descricao.trim().length == 0){
+      msgErro1.innerText = 'Descrição não deve ser formada apenas por espaço'
+      return false
+    } else if (descricao.trim().length <=3){
+      msgErro1.innerText = 'Descrição deve ter mais que 3 caracteres válidos'
+      return false
+    } 
+    return true
+    } else{
+    return false
+    }
+  }
 }
