@@ -1,8 +1,14 @@
-let lembretes = [["Titulo do lembrete","out", 2022, "10:30"]]
+let lembretes = [
+    ["Titulo do lembrete","out", 2022, "10:30"], 
+    ["Ir na facul","nov", 2022, "10:30"], 
+    ["fazer compras","out", 2022, "10:30"],
+]
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
   addLembrete(event);
 });
+let meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+let mesAtual = 10;
 
 function manipularModal() {
   modal = document.querySelector(".modal-container");
@@ -31,8 +37,10 @@ function mostrarLembretes(){
   let show = document.querySelector('.tasks');
   show.innerHTML = '';
   if(lembretes.length > 0) {
-    lembretes.map((lembrete) =>{ 
-         show.innerHTML += `<div class="task-container task-container-item"><p>${lembrete[0]}</p> <p>${lembrete[lembrete.length-1]}</p></div>`
+    lembretes.filter((lembrete) =>{
+        if(lembrete[1] === meses[mesAtual-1]){
+            show.innerHTML += `<div class="task-container task-container-item"><p>${lembrete[0]}</p> <p>${lembrete[lembrete.length-1]}</p></div>`
+        }
      })
  }else{
      show.innerHTML += `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
