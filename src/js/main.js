@@ -7,28 +7,31 @@ document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
   addLembrete(event);
 });
-let meses = ['jan, 2022','fev, 2022','mar, 2022','abr, 2022','mai, 2022','jun, 2022','jul, 2022','ago, 2022','set, 2022','out, 2022','nov, 2022','dez, 2022']
+
+let meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
 let mesAtual = 10;
-let mesChange = 0;
+let anoAtual = 2022;
 
 function mudarMesAvançar(){
     let show = document.querySelector('.mostra');
     show.innerHTML = '';
-    if(mesChange+1<meses.length){
-        mesChange++;
+    if(mesAtual<meses.length){
+        mesAtual++;
+        mostrarLembretes();
    }
-    let mes = meses[mesChange]
-    show.innerHTML += `<p>${mes}</p>`
+    let mes = meses[mesAtual-1]
+    show.innerHTML += `<p>${mes}, ${2022}</p>`
 }
 
 function mudarMesVoltar(){
     let show = document.querySelector('.mostra');
     show.innerHTML = '';
-    if(mesChange-1>=0){
-         mesChange--;
+    if(mesAtual > 1){
+      mesAtual--;
+      mostrarLembretes();
     }
-    let mes = meses[mesChange]
-    show.innerHTML += `<p>${mes}</p>`
+    let mes = meses[mesAtual-1]
+    show.innerHTML += `<p>${mes}, ${2022}</p>`
 }
 
 function manipularModal() {
@@ -59,12 +62,12 @@ function mostrarLembretes(){
   show.innerHTML = '';
   if(lembretes.length > 0) {
     lembretes.filter((lembrete) =>{
-        if(lembrete[1] === meses[mesAtual-1]){
+        if(lembrete[1] == meses[mesAtual-1]){
             show.innerHTML += `<div class="task-container task-container-item"><p>${lembrete[0]}</p> <p>${lembrete[lembrete.length-1]}</p></div>`
         }
      })
  }else{
-     show.innerHTML += `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
+     show.innerHTML = `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
  }
 }
 
