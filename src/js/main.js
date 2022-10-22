@@ -84,6 +84,11 @@ function addLembrete(e) {
     manipularModal();
     mostrarLembretes();
     }
+    limparDescricao();
+}
+
+function limparDescricao(){
+  document.getElementById('descricao').value = '';
 }
 
 
