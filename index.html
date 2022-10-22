@@ -1,65 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <div class="container">
-            <h1>Reminders App</h1>
-            <div class="btn-container">
-                <div class="data">
-                    <div><</div>
-                    <div>out, 2022</div>
-                    <div>></div>
-                </div>
-                <button class="button-primary" onclick="manipularModal()">+ Adicionar lembrete</button>
-            </div>
+      <div class="container">
+        <h1>Reminders App</h1>
+        <div class="btn-container">
+          <div class="data">
+            <div><</div>
+            <div>out, 2022</div>
+            <div>></div>
+          </div>
+          <button class="button-primary" onclick="manipularModal()">
+            + Adicionar lembrete
+          </button>
         </div>
-        <div class="task-container">
-            <p>Nenhum lembrete cadastrado ainda</p>
-        </div>
-        
+      </div>
+      <div class="task-container">
+        <p>Nenhum lembrete cadastrado ainda</p>
+      </div>
     </main>
     <div class="modal-container hidden">
-        <div class="modal">
-            <header class="modal-header">
-                <h2>
-                    Adicionar lembrete
-                </h2>
-            </header>
-            <form class="modal-body" >
-                    <label for="descricao">Descrição:</label>
-                    <input class="modal-input" name='descricao' id="descricao" type="text">
-                    <label for="mes">Mês:</label>
-                    <select name="mes" id="mes">
-                        <option value="jan">Jan</option>
-                        <option value="fev">Fev</option>
-                        <option value="mar">Mar</option>
-                        <option value="abr">Abr</option>
-                        <option value="mai">Mai</option>
-                        <option value="jun">Jun</option>
-                        <option value="jul">Jul</option>
-                        <option value="ago">Ago</option>
-                        <option value="set">Set</option>
-                        <option value="out">Out</option>
-                        <option value="nov">Nov</option>
-                        <option value="dez">Dez</option>
-                    </select>
-                    <label for="ano">Ano:</label>
-                    <input class="modal-input" name='descricao' min="2022" max="2030" id="descricao" type="number">
-                    <label for="hora">Hora:</label>
-                    <input class="modal-input" type="text" name="hora" id="hora">
-                    <button type="submit" class="button-primary">Adicionar lembrete</button>
-                    <button id="delete" type="button" class="button-primary" onclick="manipularModal()">Cancelar</button>
-                </form>
-        </div>
+      <div class="modal">
+        <header class="modal-header">
+          <h2 class="modal-title">Adicionar lembrete</h2>
+        </header>
+        <form class="modal-body">
+          <div class="form-control">
+            <label for="descricao" class="label">Descrição:</label>
+            <input
+              class="modal-input"
+              name="descricao"
+              id="descricao"
+              type="text"
+            />
+          </div>
+          <div class="form-control">
+            <label for="mes">Mês:</label>
+            <select class="modal-input" name="mes" class="" id="mes">
+              <option value="jan">Jan</option>
+              <option value="fev">Fev</option>
+              <option value="mar">Mar</option>
+              <option value="abr">Abr</option>
+              <option value="mai">Mai</option>
+              <option value="jun">Jun</option>
+              <option value="jul">Jul</option>
+              <option value="ago">Ago</option>
+              <option value="set">Set</option>
+              <option value="out">Out</option>
+              <option value="nov">Nov</option>
+              <option value="dez">Dez</option>
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="ano">Ano:</label>
+            <input
+              class="modal-input input-number"
+              name="ano"
+              min="2022"
+              max="2030"
+              value="2022"
+              id="descricao"
+              type="number"
+            />
+          </div>
+          <div class="form-control">
+            <label for="hora">Hora:</label>
+            <input class="modal-input" type="text" name="hora" id="hora" />
+          </div>
+          <div class="form-control">
+            <button type="submit" class="button-primary">
+                Adicionar lembrete
+              </button>
+              <button
+                id="delete"
+                type="button"
+                class="button-primary"
+                onclick="manipularModal()"
+              >
+                Cancelar
+              </button>
+          </div>
+        </form>
+      </div>
     </div>
     <script src="./src/js/main.js"></script>
-</body>
+  </body>
 </html>
