@@ -1,11 +1,16 @@
 // Inicialização de variáveis
-
 let lembretes = [
     ["Titulo do lembrete","out", 2022, "10:30"], 
     ["Ir na facul","nov", 2022, "10:30"], 
     ["fazer compras","out", 2022, "10:30"],
 ]
-
+/*
+  Estrutura dum item do array lembretes: 
+  item[0] -> Descrição
+  item[1] -> Mês
+  item[2] -> Ano
+  item[3] -> Hora
+*/
 let meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
 
 let mesAtual = 10;
@@ -66,6 +71,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 function addLembrete(e) {
   let formData = new FormData(e.target).entries();
   let lembreteObj = Object.fromEntries(formData);
+  //As duas linhas acima criam um objeto com todos os campos do formulario.
   let lembreteArray = [];
   lembreteArray.push(lembreteObj.descricao);
   lembreteArray.push(lembreteObj.mes);
