@@ -30,27 +30,23 @@ function mostrarData(){
 function mudarDataAvançar(){
   if(mesAtual<meses.length){
     mesAtual++;
-    mostrarLembretes();
-    mostrarData();
   } else {
     mesAtual = 1
     anoAtual ++
-    mostrarLembretes();
-    mostrarData();
   }
+  mostrarLembretes();
+  mostrarData();
 }
 
 function mudarDataVoltar(){
   if(mesAtual > 1){
     mesAtual--;
-    mostrarLembretes();
-    mostrarData();
   } else {
       anoAtual --
       mesAtual = 12
-      mostrarLembretes();
-      mostrarData();
   }
+  mostrarLembretes();
+  mostrarData();
 }
 
 //Abrir / fechar modal
