@@ -79,21 +79,21 @@ function addLembrete(e) {
     lembreteArray.push(lembreteObj.descricao);
     lembreteArray.push(lembreteObj.mes);
     lembreteArray.push(parseInt(lembreteObj.ano));
-    if(validarHorario(lembreteObj.hora)){ 
-      lembreteArray.push(horaLembrete);
-      lembretes.push(lembreteArray);
-      manipularModal();
-      mostrarLembretes();
+    lembreteArray.push(horaLembrete);
+    lembretes.push(lembreteArray);
+    manipularModal();
+    mostrarLembretes();
     }
 }
+
 
 //Mostrar Lembretes na tela
 
 function mostrarLembretes(){
   let show = document.querySelector('.tasks');
   show.innerHTML = '';
-  let lembretesFiltrados = lembretes
-  .filter((lembrete) => lembrete[1] === meses[mesAtual-1] && lembrete[2] === anoAtual )   
+  let lembretesFiltrados = lembretes.sort((a,b) => parseInt(a[3].replace(':', '')) - parseInt(b[3].replace(':', '')))
+  .filter((lembrete) => lembrete[1] === meses[mesAtual-1] && lembrete[2] == anoAtual )   
   if (lembretesFiltrados.length > 0 ){
     lembretesFiltrados
     .forEach(el =>{
@@ -106,14 +106,15 @@ function mostrarLembretes(){
   }
 }
 
+// Validar o formato do horário
 
 function validarHorario(horario){
   const msgErro = document.getElementById('erro-horario');
   msgErro.innerText = "";
   let hora = parseInt(horario.slice(0, 2));
   let minutos = horario.slice(-2);
-  if(horario.length < 4 || horario.length > 5 || minutos.length < 2 || horario.slice(-4, -3) === ':') {
-    msgErro.innerText = 'horario inválido';
+  if(horario.length !== 5 || horario.slice(2, 3) !== ':') {
+    msgErro.innerText = 'Hora inválida, formato correto HH:MM';
     return false;
   }else{
     if(hora >= 0 && hora < 24 && minutos >=0 && minutos < 60){
@@ -122,7 +123,7 @@ function validarHorario(horario){
      horaLembrete = `${hora}:${minutos}`;
      return true;
     }else{
-      msgErro.innerText = "hora inválida";
+      msgErro.innerText = "Hora inválida, formato correto HH:MM";
       return false;
    }
   }
@@ -149,8 +150,7 @@ function validarDescricao(descricao){
       return false
     } 
     return true
-    } else{
+  } else{
     return false
-    }
   }
 }
