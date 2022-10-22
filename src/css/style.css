@@ -182,8 +182,10 @@ label{
     font-weight: 400;
     font-size: 0.9rem;
     color: #6d6d6d;
+
 }
-#erro-horario{
+.erro-form{
     color: red;
     font-size: 0.7rem;
+    line-height: 0;
 }

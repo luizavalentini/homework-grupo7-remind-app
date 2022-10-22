@@ -44,8 +44,10 @@
               name="descricao"
               id="descricao"
               type="text" required
-              pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+              onchange="validarDescricao(this.value)"
+              pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9]+$"
             />
+            <span id="erro-descricao" class="erro-form"></span>
           </div>
           <div class="form-control">
             <label for="mes">Mês:</label>
@@ -79,8 +81,8 @@
           </div>
           <div class="form-control">
             <label for="hora">Hora:</label>
-            <input class="modal-input" type="text"  onchange="validarHorario(this.value)" name="hora" id="hora" required/>
-            <span id="erro-horario"></span>
+            <input class="modal-input" type="text" onchange="validarHorario(this.value)" name="hora" id="hora" required/>
+            <span id="erro-horario" class="erro-form"></span>
           </div>
           <div class="form-control">
             <button type="submit" class="button-primary">
