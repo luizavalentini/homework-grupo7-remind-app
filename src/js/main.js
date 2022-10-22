@@ -1,9 +1,11 @@
 // Inicialização de variáveis
 let lembretes = [
-    ["Titulo do lembrete","out", 2022, "10:30"], 
+    ["Titulo do lembrete","out", 2022, "11:30"], 
     ["Ir na facul","nov", 2022, "10:30"], 
     ["fazer compras","out", 2022, "10:30"],
 ]
+
+let horaLembrete = '';
 /*
   Estrutura dum item do array lembretes: 
   item[0] -> Descrição
@@ -72,14 +74,16 @@ function addLembrete(e) {
   let formData = new FormData(e.target).entries();
   let lembreteObj = Object.fromEntries(formData);
   //As duas linhas acima criam um objeto com todos os campos do formulario.
-  let lembreteArray = [];
-  lembreteArray.push(lembreteObj.descricao);
-  lembreteArray.push(lembreteObj.mes);
-  lembreteArray.push(lembreteObj.ano);
-  lembreteArray.push(lembreteObj.hora);
-  lembretes.push(lembreteArray);
-  manipularModal();
-  mostrarLembretes();
+  if(validarHorario(lembreteObj.hora)){ 
+    let lembreteArray = [];
+    lembreteArray.push(lembreteObj.descricao);
+    lembreteArray.push(lembreteObj.mes);
+    lembreteArray.push(parseInt(lembreteObj.ano));
+    lembreteArray.push(horaLembrete);
+    lembretes.push(lembreteArray);
+    manipularModal();
+    mostrarLembretes();
+    }
 }
 
 
@@ -100,4 +104,31 @@ function mostrarLembretes(){
     }else{
       show.innerHTML = `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
   }
+}
+
+// Validar o formato do horário
+
+function validarHorario(horario){
+  const msgErro = document.getElementById('erro-horario');
+  msgErro.innerText = "";
+  let hora = parseInt(horario.slice(0, 2));
+  let minutos = horario.slice(-2);
+  if(horario.length !== 5 || horario.slice(2, 3) !== ':') {
+    msgErro.innerText = 'Hora inválida, formato correto HH:MM';
+    return false;
+  }else{
+    if(hora >= 0 && hora < 24 && minutos >=0 && minutos < 60){
+     hora = formataHoraMinuto(hora)
+     minutos = minutos;
+     horaLembrete = `${hora}:${minutos}`;
+     return true;
+    }else{
+      msgErro.innerText = "Hora inválida, formato correto HH:MM";
+      return false;
+   }
+  }
+}
+
+function formataHoraMinuto(a){
+  return a < 10 ? `0${a}` : a;
 }
