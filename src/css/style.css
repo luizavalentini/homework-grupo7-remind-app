@@ -36,10 +36,15 @@ main {
     border-radius: 10px;
     width: 600px;
     height: 64px;
+    padding: 0 20px;
     margin-top: 21px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.task-container-item{
+    justify-content: space-between;
 }
 .task-container p {
     font-size: 16px;

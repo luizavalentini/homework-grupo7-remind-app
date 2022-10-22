@@ -32,7 +32,7 @@ function mostrarLembretes(){
   show.innerHTML = '';
   if(lembretes.length > 0) {
     lembretes.map((lembrete) =>{ 
-         show.innerHTML += `<div class="task-container">${lembrete[0]} ${lembrete[lembrete.length-1]}</p></div>`
+         show.innerHTML += `<div class="task-container task-container-item"><p>${lembrete[0]}</p> <p>${lembrete[lembrete.length-1]}</p></div>`
      })
  }else{
      show.innerHTML += `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
