@@ -183,3 +183,7 @@ label{
     font-size: 0.9rem;
     color: #6d6d6d;
 }
+#erro-horario{
+    color: red;
+    font-size: 0.7rem;
+}
