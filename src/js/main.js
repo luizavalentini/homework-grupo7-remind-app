@@ -60,14 +60,17 @@ function manipularModal(){
 function mostrarLembretes(){
   let show = document.querySelector('.tasks');
   show.innerHTML = '';
-  if(lembretes.length > 0) {
-    lembretes.filter((lembrete) =>{
-        if(lembrete[1] == meses[mesAtual-1]){
-            show.innerHTML += `<div class="task-container task-container-item"><p>${lembrete[0]}</p> <p>${lembrete[lembrete.length-1]}</p></div>`
-        }
-     })
- }else{
-     show.innerHTML = `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
+  if(lembretes.length > 0){
+    let lembretesFiltrados = lembretes.filter((lembrete) => lembrete[1] == meses[mesAtual-1])   
+    if (lembretesFiltrados.length > 0 ){
+      lembretesFiltrados.forEach(el =>
+        show.innerHTML += `<div class="task-container task-container-item"><p>${el[0]}</p> <p>${el[el.length-1]}</p></div>`
+      )
+    }else{
+      show.innerHTML = `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
+  }
+ } else{
+    show.innerHTML = `<div class="task-container">Nenhum lembrete cadastrado ainda</p></div>`
  }
 }
 
