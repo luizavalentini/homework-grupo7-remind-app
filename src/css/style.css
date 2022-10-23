@@ -94,6 +94,9 @@ main {
     align-items: center;
     color: var(--color-font-data);
 }
+button{
+    cursor: pointer;
+}
 
 .button-primary{
     background-color: var(--bg-body);
@@ -101,7 +104,6 @@ main {
     border-radius: 5px;
     color: var(--branco);
     font-size: 12px;
-    cursor: pointer;
     transition: .5s;
     padding: .7rem 2rem;
 }
@@ -163,7 +165,7 @@ main {
 
 }
 
-#delete{
+.delete{
     color: white;
     background-color: rgb(227, 56, 56);
     border: none;
@@ -188,4 +190,29 @@ label{
     color: red;
     font-size: 0.7rem;
     line-height: 0;
+}
+
+.flex-row-center{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-lembrete{
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 3px;
+    padding: 1px 4px;
+    background-color: var(--bg-body);
+    color: var(--bg-data);
+    position: relative;
+    border: 2px solid var(--bg-body);
+    transition: ease all .5s;
+}
+.delete-lembrete:hover{
+    background-color: var(--branco);
+    color: var(--bg-body);
+    transform: scale(1.01);
 }
