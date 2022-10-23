@@ -92,13 +92,17 @@ function addLembrete(e) {
 function mostrarLembretes(){
   let show = document.querySelector('.tasks');
   show.innerHTML = '';
-  let lembretesFiltrados = lembretes.sort((a,b) => parseInt(a[3].replace(':', '')) - parseInt(b[3].replace(':', '')))
-  .filter((lembrete) => lembrete[1] === meses[mesAtual-1] && lembrete[2] == anoAtual )   
+  let lembretesFiltrados = lembretes.filter((lembrete) => lembrete[1] === meses[mesAtual-1] && lembrete[2] == anoAtual )   
   if (lembretesFiltrados.length > 0 ){
     lembretesFiltrados
-    .forEach(el =>{
+    .sort((a,b) => parseInt(a[3].replace(':', '')) - parseInt(b[3].replace(':', '')))
+    .forEach((el) =>{
       show.innerHTML += `<div class="task-container task-container-item">
-      <p>${el[0]}</p> <p>${el[el.length-1]}</p>
+        <p>${el[0]}</p>
+        <div class="flex-row-center">
+          <p>${el[el.length-1]}</p>
+          <button class="delete-lembrete" onclick='confirmarExcluirLembrete(${lembretes.indexOf(el)})'> &#128465 </button>
+        </div>
       </div>`
     })
     }else{
@@ -154,3 +158,30 @@ function validarDescricao(descricao){
     return false
   }
 }
+
+function exlcuirLembrete(index){
+  lembretes.splice(index,1)
+  fecharModalExcluirLembrete();
+  mostrarLembretes();
+}
+
+const confirmarExcluirLembrete = (index) => {
+  document.querySelector('body').innerHTML+= `<div class='modal-container' id='modal-delete'>
+    <div class='modal'>
+      <header class='modal-header'>
+        <h2 class='modal-title'>Realmente deseja exlcuir o lembrete? </h2>
+      </header>
+      <div class='flex-row-center'>
+        <button onclick='exlcuirLembrete(${index})'class='button-primary'>Sim </button>
+        <button class='button-primary delete' onclick='fecharModalExcluirLembrete()'> Não </button>
+      </div>
+    </div>
+  </div>
+`
+}
+
+function fecharModalExcluirLembrete(){
+  modal = document.querySelector('#modal-delete')
+  modal.parentNode.removeChild(modal)
+}
+
