@@ -1,8 +1,5 @@
 // Inicialização de variáveis
 let lembretes = [
-    ["Titulo do lembrete","out", 2022, "11:30"], 
-    ["Ir na facul","nov", 2022, "10:30"], 
-    ["fazer compras","out", 2022, "10:30"],
 ]
 
 let horaLembrete = '';
