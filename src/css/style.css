@@ -145,6 +145,15 @@ main {
     border-radius: 10px;
 }
 
+.modal .icon-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
 .modal-title{
     font-size: 1.5rem;
     font-weight: 500;
