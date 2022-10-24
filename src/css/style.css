@@ -24,11 +24,15 @@ main {
     background-color: var(--branco);
     width: 600px;
     margin-top: 80px;
+    margin-bottom: 21px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
+    -webkit-box-shadow: 0px 15px 54px -19px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 15px 54px -19px rgba(0,0,0,0.75);
+    box-shadow: 0px 15px 54px -19px rgba(0,0,0,0.75);
 }
 
 .task-container {
@@ -37,14 +41,18 @@ main {
     width: 600px;
     height: 64px;
     padding: 0 20px;
-    margin-top: 21px;
+    margin-bottom: 21px;
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-box-shadow: 0px 15px 54px -19px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 15px 54px -19px rgba(0,0,0,0.75);
+    box-shadow: 0px 15px 54px -19px rgba(0,0,0,0.75);
 }
 
 .task-container-item{
     justify-content: space-between;
+    user-select: none;
 }
 .task-container p {
     font-size: 16px;
@@ -55,6 +63,7 @@ main {
     font-weight: bold;
     color: var(--bg-body);
     margin-top: 40px;
+    user-select: none;
 }
 
 .btn-container {
@@ -71,6 +80,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    user-select: none;
 }
 
 .btn-container .data div:nth-child(1), .data div:nth-child(3){
@@ -110,6 +120,13 @@ main {
     color: var(--bg-body);
     transform: scale(1.01);
 }
+
+.button-primary:active {
+    transform: scale(.97);
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+}    
 
 .modal-container{
     width: 100vw;
